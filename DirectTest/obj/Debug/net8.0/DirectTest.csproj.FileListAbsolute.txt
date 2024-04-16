@@ -1,0 +1,14 @@
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\bin\Debug\net8.0\DirectTest.exe
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\bin\Debug\net8.0\DirectTest.deps.json
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\bin\Debug\net8.0\DirectTest.runtimeconfig.json
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\bin\Debug\net8.0\DirectTest.dll
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\bin\Debug\net8.0\DirectTest.pdb
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\DirectTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\DirectTest.AssemblyInfoInputs.cache
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\DirectTest.AssemblyInfo.cs
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\DirectTest.csproj.CoreCompileInputs.cache
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\DirectTest.dll
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\refint\DirectTest.dll
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\DirectTest.pdb
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\DirectTest.genruntimeconfig.cache
+C:\Users\goofy\RiderProjects\DailyCode\DirectTest\obj\Debug\net8.0\ref\DirectTest.dll
