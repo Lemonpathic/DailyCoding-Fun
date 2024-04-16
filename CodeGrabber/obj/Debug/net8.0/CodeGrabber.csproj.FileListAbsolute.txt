@@ -1,0 +1,14 @@
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\bin\Debug\net8.0\CodeGrabber.exe
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\bin\Debug\net8.0\CodeGrabber.deps.json
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\bin\Debug\net8.0\CodeGrabber.runtimeconfig.json
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\bin\Debug\net8.0\CodeGrabber.dll
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\bin\Debug\net8.0\CodeGrabber.pdb
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\CodeGrabber.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\CodeGrabber.AssemblyInfoInputs.cache
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\CodeGrabber.AssemblyInfo.cs
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\CodeGrabber.csproj.CoreCompileInputs.cache
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\CodeGrabber.dll
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\refint\CodeGrabber.dll
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\CodeGrabber.pdb
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\CodeGrabber.genruntimeconfig.cache
+C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\obj\Debug\net8.0\ref\CodeGrabber.dll
