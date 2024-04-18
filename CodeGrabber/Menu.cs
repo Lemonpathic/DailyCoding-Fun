@@ -1,5 +1,6 @@
 ﻿using System;
-namespace MyConsoleApp;
+
+namespace CodeGrabber;
 
 public class Menu
 {

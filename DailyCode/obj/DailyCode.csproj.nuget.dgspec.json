@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\goofy\\RiderProjects\\DailyCode\\DailyCode\\DailyCode.csproj": {}
+    "C:\\Users\\bryan\\RiderProjects\\DailyCoding-Fun\\DailyCode\\DailyCode.csproj": {}
   },
   "projects": {
-    "C:\\Users\\goofy\\RiderProjects\\DailyCode\\DailyCode\\DailyCode.csproj": {
+    "C:\\Users\\bryan\\RiderProjects\\DailyCoding-Fun\\DailyCode\\DailyCode.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\goofy\\RiderProjects\\DailyCode\\DailyCode\\DailyCode.csproj",
+        "projectUniqueName": "C:\\Users\\bryan\\RiderProjects\\DailyCoding-Fun\\DailyCode\\DailyCode.csproj",
         "projectName": "DailyCode",
-        "projectPath": "C:\\Users\\goofy\\RiderProjects\\DailyCode\\DailyCode\\DailyCode.csproj",
-        "packagesPath": "C:\\Users\\goofy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\goofy\\RiderProjects\\DailyCode\\DailyCode\\obj\\",
+        "projectPath": "C:\\Users\\bryan\\RiderProjects\\DailyCoding-Fun\\DailyCode\\DailyCode.csproj",
+        "packagesPath": "C:\\Users\\bryan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bryan\\RiderProjects\\DailyCoding-Fun\\DailyCode\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\goofy\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\bryan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

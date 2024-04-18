@@ -1,122 +1,146 @@
-﻿using System.Threading.Channels;
+﻿using System.Text.Json;
 
-namespace MyConsoleApp;
+namespace CodeGrabber;
 
 public class FileConsole
 {
     private string currentDirectory = @"C:\";
+    private DisplayCommands displayCommands = new DisplayCommands();
     public FileConsole()
     {
-       DisplayCommands();
+       displayCommands.Display();
        while (true)
        {
            RunCommand();
        }
     }
 
-    private void DisplayCommands()
+    
+
+    private void CreateFavorite()
     {
-        System.Console.WriteLine("COMMANDS: \n" +
-                                 "ls - list all in current directory \n" +
-                                 "lf - List files in current directory \n" +
-                                 "ld - List all folders in current directory\n" +
-                                 "cd - Change your directory \n" +
-                                 ".. - To go up a directory \n" +
-                                 "fd - Open a list of your favorite directories \n" +
-                                 "*  - Add a directory to your favorites \n" +
-                                 "\n" +
-                                 "Press ENTER to exit command menu: ");
+        string filePath = "favorites.Json";
+        Console.WriteLine(File.Exists("favorites.Json"));
+        Console.WriteLine("What is the shortcut name for this directory?");
+        var nickName = Console.ReadLine();
+        if (nickName is null)
+        {
+            var uuid = Guid.NewGuid().ToString();
+            nickName = uuid;
+        }
+        var favorite = new jsonElementFavorites();
+
+        favorite.Nickname = nickName;
+        favorite.Directory = currentDirectory;
+            
+
+        if (File.Exists("favorites.json"))
+        {
+            string? existingJson = File.ReadAllText(filePath);
+
+            var data = JsonSerializer.Deserialize<List<jsonElementFavorites>>(existingJson);
+            data?.Add(favorite);
+            var jsonStringList = JsonSerializer.Serialize(data, new JsonSerializerOptions {WriteIndented = true});
+            File.WriteAllText(filePath,jsonStringList);
+            
+
+        }
+        else
+        {
+            var favList = new List<jsonElementFavorites> { favorite };
+            var jsonString = JsonSerializer.Serialize(favList, new JsonSerializerOptions { WriteIndented = true });
+            
+            File.WriteAllText(filePath, jsonString);
+        }  
+    }
+    private void NavigateFavorite(int navigationNumber)
+    {
+        
+    }
+private void RunCommand()
+{
+    string[] foldersRaw = Directory.GetDirectories(currentDirectory);
+    string[] folders = new string[foldersRaw.Length];
+    for (int i = 0; i < foldersRaw.Length; i++)
+    {
+        folders[i] = Path.GetFileName(foldersRaw[i]).ToLower();
     }
 
-    private string[] Cleanse(string[] array)
+    Console.WriteLine($"Current Directory {currentDirectory}, press 'H' for the command list" +
+                             $"\nEnter a Command : ");
+    string? command = Console.ReadLine().ToLower();
+    string[] commandList = command.Split(' '); 
+    Console.Clear();
+
+    switch (commandList[0])
     {
-        foreach (var VARIABLE in array)
-        {
-            VARIABLE.Replace(currentDirectory, "");
-        }
+        case "ls":
+        case "lf":
+        case "ld":
+            var filesDisplay = new FoundDisplay();
+            filesDisplay.Display(command, currentDirectory);
+            break;
 
-        return array;
-    }
-    private void DisplayFound(string command)
-    {
-        System.Console.Clear();
-        string[] directories = Directory.GetDirectories(currentDirectory);
-        string[] files = Directory.GetFiles(currentDirectory);
-        switch (command)
-        {
-            case "ls":
-                System.Console.Clear();
-                foreach (var VARIABLE in directories)
-                {
-                    System.Console.WriteLine($"[FOLDER] {Path.GetFileName(VARIABLE)}");
-                }
-
-                foreach (var VARIABLE in files)
-                {
-                    System.Console.WriteLine($"[FILE] {Path.GetFileName(VARIABLE)}");
-                }
-                break;
-            case "lf":
-                System.Console.Clear();
-                System.Console.WriteLine("-----FILES-----");
-                foreach (var File in files)
-                {
-                    System.Console.WriteLine(Path.GetFileName(File));
-                }
-                break;
-            case "ld":
-                System.Console.Clear();
-                System.Console.WriteLine("----FOLDERS----");
-
-                foreach (var VARIABLE in directories)
-                {
-                    System.Console.WriteLine(Path.GetFileName(VARIABLE));
-                }
-                break;
-        }
-    }
-    private void RunCommand()
-    {
-        string[] foldersRaw = Directory.GetDirectories(currentDirectory);
-        string[] folders = new string[foldersRaw.Length];
-        for (int i = 0; i < foldersRaw.Length; i++)
-        {
-            folders[i] = Path.GetFileName(foldersRaw[i]).ToLower();
-            
-        }
-
-        System.Console.WriteLine($"Current Directory {currentDirectory}, press 'H' for the command list" +
-                                 $"\nEnter a Command : ");
-        string command = System.Console.ReadLine().ToLower();
-        string[] commandList = command.Split(' '); 
-        System.Console.Clear();
-            if (commandList[0] == "ls" || commandList[0] == "lf" || commandList[0] == "ld")
-        {
-            DisplayFound(command);
-        }
-            
-        if (commandList[0] == "cd")
-        {
-            
-            if (folders.Contains(commandList[1]))
+        case "cd":
+            if (commandList.Length > 1 && folders.Contains(commandList[1]))
             {
                 currentDirectory = Path.Combine(currentDirectory, commandList[1]);
             }
-        }
-
-        if (commandList[0] == "h")
-        {
-            DisplayCommands();
-        }
-
-        if (commandList[0] == "..")
-        {
-            List<string> directorySections = currentDirectory.Split('/').ToList();
+            else if (commandList.Length > 1 && commandList[1] == "..")
             {
-                directorySections.RemoveAt(directorySections.Count - 1);
-                currentDirectory = string.Join(',', directorySections);
+                List<string> directorySections = currentDirectory.Split('\\').ToList();
+                if (directorySections.Count > 1)
+                {
+                    directorySections.RemoveAt(directorySections.Count - 1);
+                    currentDirectory = string.Join('\\', directorySections);
+                    if (currentDirectory.ToLower() == "c:")
+                    {
+                        currentDirectory = "C:\\";
+                    }
+                }
             }
-        }
+            break;
+
+        case "h":
+            displayCommands.Display();
+            break;
+
+        case "*":
+        case "fav":
+            CreateFavorite();
+            break;
+
+        case "fd":
+            string filePath = "favorites.json";
+            if (File.Exists(filePath))
+            {
+                var jsonLines = File.ReadAllText(filePath);
+                var jsonData = JsonSerializer.Deserialize<List<jsonElementFavorites>>(jsonLines);
+
+                Console.WriteLine("Directory Shortcuts: ");
+                int index = 0;
+                if (jsonData is not null)
+                {
+                    foreach (var jsonObj in jsonData)
+                    {
+                        string? nickname = jsonObj.Nickname;
+                        string? directory = jsonObj.Directory;
+
+                        Console.WriteLine($"-----------------TYPE '{index}' TO NAVIGATE----------------");
+                        Console.WriteLine($"[NAME]: {nickname}\n" +
+                                          $"[DIRECTORY]: {directory}");
+                        Console.WriteLine("----------------------------------------------------");
+
+                        index += 1;
+                    }
+                }
+            }
+            break;
+
+        default:
+            Console.WriteLine("Invalid command. Press 'H' for help.");
+            break;
+    }
+}
     }
    
-}

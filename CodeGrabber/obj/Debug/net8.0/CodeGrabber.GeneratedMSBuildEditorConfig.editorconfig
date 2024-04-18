@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CodeGrabber
-build_property.ProjectDir = C:\Users\goofy\RiderProjects\DailyCode\CodeGrabber\
+build_property.ProjectDir = C:\Users\bryan\RiderProjects\DailyCoding-Fun\CodeGrabber\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
